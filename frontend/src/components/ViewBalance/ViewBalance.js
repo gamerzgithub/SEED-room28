@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react';
 import { Form, FormGroup, FormControl, ControlLabel, ButtonToolbar, Button } from 'rsuite';
 import './ViewBalance.css';
+import { connect } from "react-redux";
 import {store} from '../../index';
 
 const API_KEY = "zgEJEmVCy818DpV3eCQ5A2h6BwEKCXLTa7bG5AQr";
