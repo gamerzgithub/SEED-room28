@@ -5,13 +5,40 @@ import { Navbar, Nav, Dropdown, Icon, Button } from 'rsuite';
 import './BuyBar.css';
 import { useHistory } from "react-router-dom";
 import {store} from '../../index';
+import { connect } from "react-redux";
+import * as actions from '../../actions';
 
-export const BuyBar = () => {
+const mapStatetoProps = (state) => {
+    return state;
+}
+
+const mapDispatchtoProps = (dispatch) => {
+    return {
+        submitBuy: async (token, val) => {
+            const fields = {
+                token: token,
+                value: val,
+                action :"BUY"
+            }
+            return await dispatch(actions.thunkBuySell(fields));
+        }
+    }
+
+}
+
+const BuyBar = ({submitBuy}) => {
     const [value, setValue] = useState();
-    const token = "b4c39a64-7369-4784-bdbf-57eb2f7b2213";
-    //const token = store.getState().userReducer.accountKey
+    //const token = "b4c39a64-7369-4784-bdbf-57eb2f7b2213";
+    const token = store.getState().userReducer.accountKey
 
     const handleSubmit = async() =>{
+        console.log(value);
+        const result = await submitBuy(token, parseFloat(value));
+    }
+
+    
+
+/*     const handleSubmit = async() =>{
         var body = {
            "accountKey": token,
             "orderType" : "BUY",
@@ -27,26 +54,29 @@ export const BuyBar = () => {
           }).then(response => response.json())
             .then(result => {
                 console.log(result)
-                //save result.cashBalance
-                //save result.assetBalance
+                localStorage.setItem("assetBalance", result.assetBalance);
+                localStorage.setItem("cashBalance", result.cashBalance);
+                setCashBalance(result.cashBalance);
             })
             .catch(e => {
                 console.log(e);
             });
-    };
-
-    const history = useHistory();
+    }; */
     
 
     return(
-        <div className = "buybar">
+        <div className= "wrapper">
+            <div className = "buybar">
             <label className = "buy-text" htmlFor="dropdown">Buy</label>
-            <select className = "dropdown" name="dropdown" id="dropdown">
-                    <option value="TTK">TTK</option>
-            </select>
-        <label className = 'with-text' htmlFor="formValue">With</label>
-        <input className = "value-box" controlId="formValue" type="number" step="0.01" name="value" onChange={event => setValue(event.target.value)} />
-        <button className ="submit-button" onClick={handleSubmit}>Buy</button>
+                <select className = "dropdown" name="dropdown" id="dropdown">
+                        <option value="TTK">TTK</option>
+                </select>
+            <label className = 'with-text' htmlFor="formValue">Units:</label>
+            <input className = "value-box" type="number" step="0.01" name="value" onChange={event => setValue(event.target.value)} />
+            <button className ="submit-button" onClick={handleSubmit}>Buy</button>
+            </div>
         </div>
     )
 }
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(BuyBar);

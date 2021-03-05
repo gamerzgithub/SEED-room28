@@ -1,9 +1,8 @@
 import React from 'react';
-import BuyBar from '../components/BuyBar/BuyBar';
+import SellBar from '../components/SellBar/SellBar';
 import {NavigationBar} from "../components/NavBar/NavigationBar";
 
-export const BuyScreen = () => {
-
+export const SellScreen = () => {
     const textStyle1 = {
         color: "white",    
         fontFamily: "Arial",
@@ -15,7 +14,6 @@ export const BuyScreen = () => {
         fontFamily: "Arial",
         fontSize: "20px",
     };
-
     return(
         <div>
             <NavigationBar/>
@@ -29,11 +27,7 @@ export const BuyScreen = () => {
                     Industry leading security and strong support team
                 </label>
             </div>
-            <BuyBar/>
+            <SellBar/>
         </div>
     )
 }
-
-//font-style: normal;
-//font-weight: 500;
-//font-size: 28px;

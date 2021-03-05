@@ -6,7 +6,7 @@
     top: 353px;
 }
 
-.buybar {
+.sellbar {
     position: absolute;
     left: 0%;
     right: 0%;
@@ -17,7 +17,7 @@
     border-radius: 5px;
 }
 
-.buy-text {
+.sell-text {
     position: absolute;
     left: 5.61%;
     right: 85.79%;
@@ -40,7 +40,6 @@
     right: 54.47%;
     top: 48.31%;
     bottom: 24.72%;
-    width:30%; 
 
     background: #FFFFFF;
     border-radius: 10px;
@@ -52,7 +51,7 @@
     right: 45.18%;
     top: 54.49%;
     bottom: 30.9%;
-
+    
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -67,9 +66,8 @@
     position: absolute;
     left: 54.82%;
     right: 15%;
-    top: 46.31%;
+    top: 48.31%;
     bottom: 24.72%;
-    width:30%;
 
     background: #FFFFFF;
     border-radius: 10px;
@@ -89,7 +87,7 @@
     line-height: 33px;
     text-align: center;
 
-    color: #ffffff;
+    color: #FFFFFF;
 }
 
 .submit-button {
@@ -103,10 +101,8 @@
     font-style: normal;
     font-weight: 500;
     font-size: 28px;
-    line-height: 18px;
+    line-height: 33px;
     text-align: center;
-    height: 25%;
-    width: 10%;
 
     background-color: #FFFFFF;
 }
