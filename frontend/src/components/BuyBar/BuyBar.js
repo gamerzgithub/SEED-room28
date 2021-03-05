@@ -28,10 +28,8 @@ const mapDispatchtoProps = (dispatch) => {
 
 const BuyBar = ({submitBuy}) => {
     const [value, setValue] = useState();
-    const token = "b4c39a64-7369-4784-bdbf-57eb2f7b2213";
-    //const [cashBalance, setCashBalance] = useState(0);
-    //const [accountKey, setAccountKey] = useState(0);
-    //const token = store.getState().userReducer.accountKey
+    //const token = "b4c39a64-7369-4784-bdbf-57eb2f7b2213";
+    const token = store.getState().userReducer.accountKey
 
     const handleSubmit = async() =>{
         console.log(value);
