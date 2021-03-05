@@ -17,11 +17,11 @@ export const NavigationBar = () => {
     // }
 
     return(
-        <div style={{width: "100%", height: "20%"}}>
+        <div>
             <Navbar>
                 <Navbar.Header>
                 <div>
-                    <img className="dbslogo" alt="logo" src={logo} width="150px" height="50px"/>
+                    <img className="dbslogo" alt="logo" src={logo}/>
                 </div>
                 </Navbar.Header>
                 <Navbar.Body>
@@ -39,7 +39,7 @@ export const NavigationBar = () => {
                     </Dropdown> */}
                 </Nav>
                 <Nav pullRight >
-                    <Button style={{alignSelf:"center"}} appearance="default">Log out</Button>
+                    <Button className="buttonNav">Log out</Button>
                 </Nav>
                 </Navbar.Body>
             </Navbar>

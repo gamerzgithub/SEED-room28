@@ -12,9 +12,7 @@ import {BuyScreen} from "./screens/BuyScreen";
 import {SellScreen} from "./screens/SellScreen";
 import {OrderHistoryScreen} from "./screens/OrderHistoryScreen";
 import {CurrentPricingScreen} from "./screens/CurrentPricingScreen";
-
 import {store} from './index';
-
 import {Posts} from './containers/Posts';
 
 const particlesParam = {
