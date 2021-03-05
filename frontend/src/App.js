@@ -33,7 +33,16 @@ function App() {
   return (
     <div className="App">
       <Particles className='particles' params={particlesParam}/>
-      <OrderHistoryScreen />
+      <Router>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/signin" />
+            </Route>
+            <Route path="/signin" component={AuthScreen}/>
+            <Route path="/home" component={HomeScreen} />
+            <Route path="/orderhistory" component={OrderHistoryScreen} />
+          </Switch>
+      </Router>
     </div>
   );
 }
