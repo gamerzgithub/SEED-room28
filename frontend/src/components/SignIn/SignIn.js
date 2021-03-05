@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from '../../actions';
 import {store} from '../../index';
+import "./SignIn.css";
 
 
 
@@ -48,19 +49,19 @@ const SignIn = ({submitSignIn}) => {
     }
 
     return(
-        <div fluid style={{justifyContent:"center", alignSelf:"center", display:"flex"}}>
-            <Form style={{width:"50%"}}>
+        <div fluid className="vertical-align">
+            <Form>
                 <FormGroup>
-                <ControlLabel style={{color: 'white'}}>Username</ControlLabel>
+                <ControlLabel className="controlLabel">Username</ControlLabel>
                 <FormControl onChange={value => setUsername(value)} name="username" />
                 </FormGroup>
                 <FormGroup>
-                <ControlLabel style={{color: 'white'}}>Password</ControlLabel>
+                <ControlLabel className="controlLabel">Password</ControlLabel>
                 <FormControl onChange={value => setPassword(value)} name="password" type="password" />
                 </FormGroup>
                 <FormGroup>
                 <ButtonToolbar>
-                    <Button onClick={signInAndNavigate} appearance="primary">Submit</Button>
+                    <Button className="button" onClick={signInAndNavigate} appearance="primary">Submit</Button>
                     <Button onClick={() => console.log(token)} appearance="default">Cancel</Button>
                 </ButtonToolbar>
                 </FormGroup>
