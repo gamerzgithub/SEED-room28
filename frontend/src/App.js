@@ -41,19 +41,6 @@ function App() {
             </Route>
             <Route path="/buy" component={BuyScreen}/>
             <Route path="/signin" component={AuthScreen}/>
-<<<<<<< HEAD
-            {/* {
-              token
-
-              ?
-              <>
-              <Route path="/home" component={HomeScreen} />
-              </>
-              :
-              <Redirect to="/home" />
-            } */}
-=======
->>>>>>> origin/wallet
             <Route path="/home" component={HomeScreen} />
             <Route path="/orderhistory" component={OrderHistoryScreen} />
             <Route path="/currentpricing" component={CurrentPricingScreen} />

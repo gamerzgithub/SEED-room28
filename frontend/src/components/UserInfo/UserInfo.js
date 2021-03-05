@@ -9,13 +9,13 @@ const mapStatetoProps = (state) => {
     }
 }
 
-
 const UserInfo = ({userParticulars}) => {
     return(
         <div className="container">
             <div className="user-container">
                 <div className="wallet-container">
-                    <p >Welcome back, {userParticulars.firstName}</p>
+                    <p>Welcome back, {userParticulars.firstName}</p>
+                    <p> </p>
                     {/* insert wallet here */}
                 </div>
 
