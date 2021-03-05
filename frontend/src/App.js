@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import {HomeScreen} from "./screens/HomeScreen";
 import {AuthScreen} from "./screens/AuthScreen";
 import {OrderHistoryScreen} from "./screens/OrderHistoryScreen";
+import {CurrentPricingScreen} from "./screens/CurrentPricingScreen";
 import {store} from './index';
 
 import {Posts} from './containers/Posts';
@@ -41,6 +42,7 @@ function App() {
             <Route path="/signin" component={AuthScreen}/>
             <Route path="/home" component={HomeScreen} />
             <Route path="/orderhistory" component={OrderHistoryScreen} />
+            <Route path="/currentpricing" component={CurrentPricingScreen} />
           </Switch>
       </Router>
     </div>
