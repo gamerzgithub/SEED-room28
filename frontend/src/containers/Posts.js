@@ -3,7 +3,7 @@ import {store} from '../index';
 import moment from 'moment';
 
 import TransHistory from '../components/TransHistory/TransHistory';
-//import './Posts.css';
+import './Posts.css';
 
 import { Table } from 'rsuite';
 
@@ -41,49 +41,57 @@ export const Posts = () => {
 
 
     return(
-        <div>
-            <Table
-            height={400}
-            data={orderHistory}
-            onRowClick={data => {
-                console.log(data);
-            }}
-            >
-                <Column width={70} align="center" fixed>
-                    <HeaderCell>Id</HeaderCell>
-                    <Cell dataKey="transactionId" />
-                </Column>
+        <div className="auth-wrapper">     
+            <div className="auth-inner">
+                <div>
+                    <h2 className="th-text">Transaction History</h2>
+                    <h3 className="th-text2">As at CURRENTDATE</h3> 
+                    <h3 className="th-text3">DOWNLOAD</h3>                    
+                </div>
 
-                <Column width={200}>
-                    <HeaderCell>Order type</HeaderCell>
-                    <Cell dataKey="orderType" />
-                </Column>
+                <Table className ="th-table"
+                height={400}
+                data={orderHistory}
+                onRowClick={data => {
+                    console.log(data);
+                }}
+                >
+                    <Column width={70} align="center" fixed>
+                        <HeaderCell>Id</HeaderCell>
+                        <Cell dataKey="transactionId" />
+                    </Column>
 
-                <Column width={200}>
-                    <HeaderCell>Timestamp</HeaderCell>
-                    <Cell rowData={data => moment.unix(data).format("MM/DD/YYYY")} dataKey="timestamp" />
-                </Column>
+                    <Column width={200}>
+                        <HeaderCell>Order type</HeaderCell>
+                        <Cell dataKey="orderType" />
+                    </Column>
 
-                <Column width={200}>
-                    <HeaderCell>Asset symbol</HeaderCell>
-                    <Cell dataKey="assetSymbol" />
-                </Column>
+                    <Column width={200}>
+                        <HeaderCell>Timestamp</HeaderCell>
+                        <Cell rowData={data => moment.unix(data).format("MM/DD/YYYY")} dataKey="timestamp" />
+                    </Column>
 
-                <Column width={200}>
-                    <HeaderCell>Asset amount</HeaderCell>
-                    <Cell dataKey="assetAmount" />
-                </Column>
+                    <Column width={200}>
+                        <HeaderCell>Asset symbol</HeaderCell>
+                        <Cell dataKey="assetSymbol" />
+                    </Column>
 
-                <Column width={200}>
-                    <HeaderCell>Asset price ($)</HeaderCell>
-                    <Cell dataKey="assetPrice" />
-                </Column>
+                    <Column width={200}>
+                        <HeaderCell>Asset amount</HeaderCell>
+                        <Cell dataKey="assetAmount" />
+                    </Column>
 
-                <Column width={200}>
-                    <HeaderCell>Cash amount ($)</HeaderCell>
-                    <Cell dataKey="cashAmount" />
-                </Column>
-            </Table>
+                    <Column width={200}>
+                        <HeaderCell>Asset price ($)</HeaderCell>
+                        <Cell dataKey="assetPrice" />
+                    </Column>
+
+                    <Column width={200}>
+                        <HeaderCell>Cash amount ($)</HeaderCell>
+                        <Cell dataKey="cashAmount" />
+                    </Column>
+                </Table>
+            </div>
         </div>
     )
 }
