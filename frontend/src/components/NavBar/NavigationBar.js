@@ -35,6 +35,7 @@ export const NavigationBar = () => {
                     <Dropdown.Item>Team</Dropdown.Item>
                     <Dropdown.Item>Contact</Dropdown.Item>
                     </Dropdown>
+                    <Nav.Item>View Balance</Nav.Item>
                 </Nav>
                 <Nav pullRight >
                     <Button style={{alignSelf:"center"}} appearance="default">Log out</Button>
