@@ -11,6 +11,16 @@ export const signInSucess = (particulars) => {
     }
 }
 
+export const buySellSucess = (particulars) => {
+    var payload = {
+        assetBalance : particulars.assetBalance,
+        cashBalance : particulars.cashBalance
+    }
+    return {
+        type: constants.BUY_SELL_SUCCESS,
+        payload: payload
+    }
+}
 
 
 //thunks
@@ -41,3 +51,43 @@ export const thunkSignIn = (
         return false;
     }
 }
+
+
+export const thunkBuySell = (
+    fields
+) => async (dispatch) => {
+    try{
+        if (fields.action == "BUY") {
+            var body = JSON.stringify({
+                accountKey: fields.token,
+                assetAmount : fields.value,
+                orderType: "BUY"
+            });
+        } else {
+            var body = JSON.stringify({
+                accountKey: fields.token,
+                assetAmount : fields.value,
+                orderType: "SELL"
+            })
+        }
+
+        const res = await fetch("https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/add", {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': API_KEY
+            },
+            body: body
+        });
+
+        const jsonRes = await res.json();
+        dispatch(buySellSucess(jsonRes));
+        return true;
+
+    } catch(err) {
+        console.log(err);
+        return false;
+    }
+}
+
+

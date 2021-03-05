@@ -1,0 +1,109 @@
+.wrapper {
+    position: absolute;
+    width: 1140px;
+    height: 178px;
+    left: 150px;
+    top: 353px;
+}
+
+.sellbar {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 27.53%;
+    bottom: 3.93%;
+    
+    background: #423E3E;
+    border-radius: 5px;
+}
+
+.sell-text {
+    position: absolute;
+    left: 5.61%;
+    right: 85.79%;
+    top: 54.49%;
+    bottom: 30.9%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.dropdown {
+    position: absolute;
+    left: 15.35%;
+    right: 54.47%;
+    top: 48.31%;
+    bottom: 24.72%;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.with-text {   
+    position: absolute;
+    left: 46.23%;
+    right: 45.18%;
+    top: 54.49%;
+    bottom: 30.9%;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    text-align: center;
+    
+    color: #FFFFFF;
+}
+
+.value-box {
+    position: absolute;
+    left: 54.82%;
+    right: 15%;
+    top: 48.31%;
+    bottom: 24.72%;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.buy-button {
+    position: absolute;
+    left: 5.61%;
+    right: 85.79%;
+    top: 54.49%;
+    bottom: 30.9%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.submit-button {
+    position: absolute;
+    left: 87.37%;
+    right: 4.04%;
+    top: 20.49%;
+    bottom: 20.9%;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 33px;
+    text-align: center;
+
+    background-color: #FFFFFF;
+}
+

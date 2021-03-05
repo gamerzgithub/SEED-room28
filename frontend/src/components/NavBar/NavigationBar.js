@@ -29,6 +29,8 @@ export const NavigationBar = () => {
                     <Nav.Item onClick={()=>history.push('/home')} icon={<Icon icon="home" />} >Home</Nav.Item>
                     <Nav.Item onClick={()=>history.push('/orderhistory')}>Order History</Nav.Item>
                     <Nav.Item onClick={()=>history.push('/currentpricing')}>Current Pricing</Nav.Item>
+                    <Nav.Item onClick={()=>history.push('/buy')}>Buy</Nav.Item>
+                    <Nav.Item onClick={()=>history.push('/sell')}>Sell</Nav.Item>
                     <Nav.Item>Products</Nav.Item>
                     {/* <Dropdown title="About">
                     <Dropdown.Item onSelect={()=>console.log('hi')}>Company</Dropdown.Item>
