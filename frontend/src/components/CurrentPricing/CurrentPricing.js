@@ -43,7 +43,7 @@ export const CurrentPricing = () => {
         <div>
             <div className="container">
                 <img width="64" height="64" src={tokenIcon} alt="token"/>
-                <p>{currentPricing.assetSymbol}</p>
+                <p>Asset symbol: {currentPricing.assetSymbol}</p>
                 <p>Current price: {currentPricing.price}</p>
                 <p>As of: {currentPricing.timestamp}</p>
                 
