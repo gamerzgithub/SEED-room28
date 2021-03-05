@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {store} from '../index';
 
 import TransHistory from '../components/TransHistory/TransHistory';
 //import './Posts.css';
@@ -11,6 +12,8 @@ const { Column, HeaderCell, Cell, Pagination } = Table;
 export const Posts = () => {
 
     const[orderHistory, setOrderHistory] = useState([]);
+    const token = store.getState().userReducer.accountKey;
+
 
     useEffect(async () => {
         const requestOptions = {
@@ -19,7 +22,7 @@ export const Posts = () => {
 				'Content-Type': 'application/json',
 				'x-api-key': 'zgEJEmVCy818DpV3eCQ5A2h6BwEKCXLTa7bG5AQr'
 			},
-			body: JSON.stringify({ accountKey: 'b4c39a64-7369-4784-bdbf-57eb2f7b2213' })
+			body: JSON.stringify({ accountKey: token })
         };
 
         const res = await fetch("https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/view",
@@ -33,7 +36,7 @@ export const Posts = () => {
         setOrderHistory(jsonRes);
 
 
-    })
+    },[]);
 
 
     return(

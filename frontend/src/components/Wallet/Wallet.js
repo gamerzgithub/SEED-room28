@@ -31,7 +31,7 @@ export const Wallet = () => {
         setCashBal(jsonRes.cashBalance);
 
 
-    })
+    }, [])
 
     return(
         <div style={{display:"flex"}}>

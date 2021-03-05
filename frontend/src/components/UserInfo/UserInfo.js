@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { FlexboxGrid, List } from 'rsuite';
+import {Wallet} from '../Wallet/Wallet';
 
 
 
@@ -17,7 +18,7 @@ const UserInfo = ({userParticulars}) => {
             <div style={{width: "80vw", height: "50vh", backgroundColor: "white", borderRadius: 2, display:"flex", alignItems:"center", justifyContent:"center"}} className="user-container">
                 <div className="wallet-container">
                     <p style={{fontSize: 20}}>Welcome back, {userParticulars.firstName}</p>
-                    {/* insert wallet here */}
+                    <Wallet />
                 </div>
                 <div className="particulars-container">
                     <List bordered>
