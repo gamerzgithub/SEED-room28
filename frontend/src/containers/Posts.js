@@ -21,7 +21,7 @@ class Posts extends Component {
 		};
 		fetch('https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/view', requestOptions)
 			.then(response => response.json())
-			.then(data => this.setState({ postId: data.id }));
+			.then(data => this.setState({ postId: data.orderType }));
     }
 
      render() {
@@ -30,7 +30,7 @@ class Posts extends Component {
             <div className="card text-center m-3">
                 <h5 className="card-header">Simple POST Request</h5>
                 <div className="card-body">
-                    Returned Id: {postId.orderType}
+                    Returned Id: {postId}
                 </div>
             </div>
         );
