@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 import {HomeScreen} from "./screens/HomeScreen";
 
+import Posts from './containers/Posts';
+
 const particlesParam = {
 	particles: {
     number: {
@@ -25,6 +27,7 @@ function App() {
     <div className="App">
       <Particles className='particles' params={particlesParam}/>
       <HomeScreen />
+	  <Posts />
     </div>
   );
 }

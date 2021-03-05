@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 //import './TransHistory.css';
 
-const transHistory = ( props ) => {
+const TransHistory = ( props ) => {
     return (
         <div>
 			<p>The order orderType is {props.orderType}</p>
@@ -15,4 +15,4 @@ const transHistory = ( props ) => {
     )
 };
 
-export default transHistory;
+export default TransHistory;
