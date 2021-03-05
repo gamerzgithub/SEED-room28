@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 import {HomeScreen} from "./screens/HomeScreen";
 import {AuthScreen} from "./screens/AuthScreen";
+import {ViewBalanceScreen} from "./screens/ViewBalanceScreen";
 import {store} from './index';
 
 const particlesParam = {
@@ -46,6 +47,7 @@ function App() {
               <Redirect to="/home" />
             } */}
             <Route path="/home" component={HomeScreen} />
+            <Route path={'/viewbalance'} component={ViewBalanceScreen} />
           </Switch>
       </Router>
     </div>
