@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {store} from '../../index';
 import tokenIcon from '../../assets/token.png';
+import moment from 'moment';
+
+ 
 
 //import './CurrentPricing.css';
 
-import { Table } from 'rsuite';
 
-const { Column, HeaderCell, Cell, Pagination } = Table;
 
 
 export const CurrentPricing = () => {
@@ -36,17 +37,16 @@ export const CurrentPricing = () => {
         setCurrentPricing(jsonRes);
 
 
-    }, [])
+    })
 
 
     return(
-        <div>
-            <div className="container">
+        <div style={{height:"100%", width:"100%", justifyContent:"center", alignItems:"center"}}>
+            <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems:"center", backgroundColor:"white", width:"50%"}}>
                 <img width="64" height="64" src={tokenIcon} alt="token"/>
                 <p>Asset symbol: {currentPricing.assetSymbol}</p>
                 <p>Current price: {currentPricing.price}</p>
-                <p>As of: {currentPricing.timestamp}</p>
-                
+                <p>As of: {moment.unix(currentPricing.timestamp).format("MM/DD/YYYY")}</p>
             </div>
         </div>
     )
