@@ -3,12 +3,16 @@ import React, { useState, useEffect } from 'react';
 import TransHistory from '../components/TransHistory/TransHistory';
 //import './Posts.css';
 
+import { Table } from 'rsuite';
+
+const { Column, HeaderCell, Cell, Pagination } = Table;
+
 
 export const Posts = () => {
 
     const[orderHistory, setOrderHistory] = useState([]);
 
-    useEffect(() => {
+    useEffect(async () => {
         const requestOptions = {
 			method: 'POST',
 			headers: { 
@@ -26,13 +30,56 @@ export const Posts = () => {
 
         console.log(jsonRes);
 
+        setOrderHistory(jsonRes);
+
 
     })
 
 
     return(
         <div>
-"
+            <Table
+            height={400}
+            data={orderHistory}
+            onRowClick={data => {
+                console.log(data);
+            }}
+            >
+                <Column width={70} align="center" fixed>
+                    <HeaderCell>Id</HeaderCell>
+                    <Cell dataKey="transactionId" />
+                </Column>
+
+                <Column width={200}>
+                    <HeaderCell>Order type</HeaderCell>
+                    <Cell dataKey="orderType" />
+                </Column>
+
+                <Column width={200}>
+                    <HeaderCell>Timestamp</HeaderCell>
+                    <Cell rowData={data => Date.parse(data)} dataKey="timestamp" />
+                </Column>
+
+                <Column width={200}>
+                    <HeaderCell>Asset symbol</HeaderCell>
+                    <Cell dataKey="assetSymbol" />
+                </Column>
+
+                <Column width={200}>
+                    <HeaderCell>Asset amount</HeaderCell>
+                    <Cell dataKey="assetAmount" />
+                </Column>
+
+                <Column width={200}>
+                    <HeaderCell>Asset price ($)</HeaderCell>
+                    <Cell dataKey="assetPrice" />
+                </Column>
+
+                <Column width={200}>
+                    <HeaderCell>Cash amount ($)</HeaderCell>
+                    <Cell dataKey="cashAmount" />
+                </Column>
+            </Table>
         </div>
     )
 }

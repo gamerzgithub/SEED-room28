@@ -8,9 +8,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 import {HomeScreen} from "./screens/HomeScreen";
 import {AuthScreen} from "./screens/AuthScreen";
+import {OrderHistoryScreen} from "./screens/OrderHistoryScreen";
 import {store} from './index';
 
-import Posts from './containers/Posts';
+import {Posts} from './containers/Posts';
 
 const particlesParam = {
 	particles: {
@@ -32,8 +33,7 @@ function App() {
   return (
     <div className="App">
       <Particles className='particles' params={particlesParam}/>
-      <HomeScreen />
-	    <Posts />
+      <OrderHistoryScreen />
     </div>
   );
 }
