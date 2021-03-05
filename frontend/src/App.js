@@ -10,6 +10,8 @@ import {HomeScreen} from "./screens/HomeScreen";
 import {AuthScreen} from "./screens/AuthScreen";
 import {store} from './index';
 
+import Posts from './containers/Posts';
+
 const particlesParam = {
 	particles: {
     number: {
@@ -30,24 +32,8 @@ function App() {
   return (
     <div className="App">
       <Particles className='particles' params={particlesParam}/>
-      <Router>
-          <Switch>
-            <Route exact path="/">
-              <Redirect to="/signin" />
-            </Route>
-            <Route path="/signin" component={AuthScreen}/>
-            {/* {
-              token
-              ?
-              <>
-              <Route path="/home" component={HomeScreen} />
-              </>
-              :
-              <Redirect to="/home" />
-            } */}
-            <Route path="/home" component={HomeScreen} />
-          </Switch>
-      </Router>
+      <HomeScreen />
+	    <Posts />
     </div>
   );
 }
