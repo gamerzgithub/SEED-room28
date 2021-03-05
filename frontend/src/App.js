@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 import {HomeScreen} from "./screens/HomeScreen";
 import {AuthScreen} from "./screens/AuthScreen";
+import {store} from './index';
 
 const particlesParam = {
 	particles: {
@@ -22,6 +23,10 @@ const particlesParam = {
 }
 
 function App() {
+
+  const token = store.getState().userReducer.accountKey;
+
+  
   return (
     <div className="App">
       <Particles className='particles' params={particlesParam}/>
@@ -31,15 +36,16 @@ function App() {
               <Redirect to="/signin" />
             </Route>
             <Route path="/signin" component={AuthScreen}/>
-            {
-              true
+            {/* {
+              token
               ?
               <>
               <Route path="/home" component={HomeScreen} />
               </>
               :
-              <Redirect to="/signin" />
-            }
+              <Redirect to="/home" />
+            } */}
+            <Route path="/home" component={HomeScreen} />
           </Switch>
       </Router>
     </div>

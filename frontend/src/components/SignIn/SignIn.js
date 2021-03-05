@@ -1,47 +1,51 @@
 import React, {useState, useContext} from 'react';
 import { Form, FormGroup, FormControl, ControlLabel, ButtonToolbar, Button } from 'rsuite';
 import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from '../../actions';
+import {store} from '../../index';
 
 
 
+const mapStatetoProps = (state) => {
+    return state;
+}
+
+const mapDispatchtoProps = (dispatch) => {
+    return {
+        submitSignIn: async (us, pw) => {
+            const fields = {
+                username: us,
+                password: pw
+            }
+            return await dispatch(actions.thunkSignIn(fields));
+        }
+    }
+
+}
 
 
-export const SignIn = () => {
+
+const SignIn = ({submitSignIn}) => { 
+
+    const token = store.getState().userReducer.accountKey;
+
+
+    const history = useHistory();
 
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
-    // const {userData, setUserData} = useContext(UserContext);
+    const signInAndNavigate = async () => {
+        const result = await submitSignIn(username, password);
 
-    const history = useHistory();
+        if(result) {
+            history.push('/home');
+        } else {
+            alert("error signing in");
+        }
 
-    // const submitSignIn = async () => {
-    //     try{
-    //         const res = await fetch("http://localhost:8080/signin", {
-    //             method: 'post',
-    //             headers: {'Content-Type': 'application/json'},
-    //             body: JSON.stringify({
-    //               username: username,
-    //               password: password
-    //             })
-    //         });
-    
-    //         const jsonRes = await res.json();
-    
-    //         await setUserData({
-    //             token: jsonRes.token,
-    //             user: jsonRes.user
-    //         });
-
-    //         console.log(userData.token);
-    //         console.log(userData.user);
-
-    //         history.push("/home")
-    //     } catch(err) {
-    //         console.log(err);
-    //     }
-        
-    // }
+    }
 
     return(
         <div fluid style={{justifyContent:"center", alignSelf:"center", display:"flex"}}>
@@ -56,8 +60,8 @@ export const SignIn = () => {
                 </FormGroup>
                 <FormGroup>
                 <ButtonToolbar>
-                    <Button onClick={() =>console.log('hi')} appearance="primary">Submit</Button>
-                    <Button appearance="default">Cancel</Button>
+                    <Button onClick={signInAndNavigate} appearance="primary">Submit</Button>
+                    <Button onClick={() => console.log(token)} appearance="default">Cancel</Button>
                 </ButtonToolbar>
                 </FormGroup>
             </Form>
@@ -65,3 +69,5 @@ export const SignIn = () => {
         
     )
 }
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(SignIn);
