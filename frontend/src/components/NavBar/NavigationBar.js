@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import { Navbar, Nav, Dropdown, Icon, Button } from 'rsuite';
 // import UserContext from '../../UserContext';
-// import logo from '../../assets/dbs.png';
+import logo from '../../assets/dbs.png';
 import './NavigationBar.css';
 import { useHistory } from "react-router-dom";
 
@@ -22,7 +22,7 @@ export const NavigationBar = () => {
             <Navbar>
                 <Navbar.Header>
                 <div>
-                    <img className="dbslogo" alt="logo"  width="150px" height="50px"/>
+                    <img className="dbslogo" alt="logo" src={logo} width="150px" height="50px"/>
                 </div>
                 </Navbar.Header>
                 <Navbar.Body>
