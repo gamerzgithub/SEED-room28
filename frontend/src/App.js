@@ -7,6 +7,7 @@ import {NavigationBar} from "./components/NavBar/NavigationBar";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import {HomeScreen} from "./screens/HomeScreen";
+import {AuthScreen} from "./screens/AuthScreen";
 
 const particlesParam = {
 	particles: {
@@ -24,7 +25,23 @@ function App() {
   return (
     <div className="App">
       <Particles className='particles' params={particlesParam}/>
-      <HomeScreen />
+      <Router>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/signin" />
+            </Route>
+            <Route path="/signin" component={AuthScreen}/>
+            {
+              true
+              ?
+              <>
+              <Route path="/home" component={HomeScreen} />
+              </>
+              :
+              <Redirect to="/signin" />
+            }
+          </Switch>
+      </Router>
     </div>
   );
 }
