@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useCallback, useContext, useState} from 'react';
 import { Navbar, Nav, Dropdown, Icon, Button } from 'rsuite';
 // import UserContext from '../../UserContext';
 // import logo from '../../assets/dbs.png';
@@ -8,13 +8,14 @@ import {store} from '../../index';
 
 export const BuyBar = () => {
     const [value, setValue] = useState();
-    var accountKey = "b4c39a64-7369-4784-bdbf-57eb2f7b2213";
+    const token = "b4c39a64-7369-4784-bdbf-57eb2f7b2213";
+    //const token = store.getState().userReducer.accountKey
 
     const handleSubmit = async() =>{
         var body = {
-           "accountKey": "b4c39a64-7369-4784-bdbf-57eb2f7b2213",
+           "accountKey": token,
             "orderType" : "BUY",
-            "assetAmount" : value
+            "assetAmount" : parseFloat(value)
         }
         fetch('https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/add',{
             method: 'POST',
@@ -26,7 +27,8 @@ export const BuyBar = () => {
           }).then(response => response.json())
             .then(result => {
                 console.log(result)
-
+                //save result.cashBalance
+                //save result.assetBalance
             })
             .catch(e => {
                 console.log(e);
@@ -37,14 +39,14 @@ export const BuyBar = () => {
     
 
     return(
-        <inline className = "buybar">
+        <div className = "buybar">
             <label className = "buy-text" htmlFor="dropdown">Buy</label>
             <select className = "dropdown" name="dropdown" id="dropdown">
                     <option value="TTK">TTK</option>
             </select>
-            <label className = 'with-text' htmlFor="formValue">With</label>
-        <text className = "value-box" controlId="formValue" input type="" placeholder="1.00" name="value"  required onChange={value => setValue(value)} />
-        <button className ="submit-button" variant="primary" type="button" onClick={handleSubmit}>Buy</button>
-        </inline>
+        <label className = 'with-text' htmlFor="formValue">With</label>
+        <input className = "value-box" controlId="formValue" type="number" step="0.01" name="value" onChange={event => setValue(event.target.value)} />
+        <button className ="submit-button" onClick={handleSubmit}>Buy</button>
+        </div>
     )
 }

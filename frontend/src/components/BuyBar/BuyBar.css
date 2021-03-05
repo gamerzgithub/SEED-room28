@@ -1,9 +1,12 @@
 .buybar {
     position: absolute;
-    width: 1140px;
-    height: 178px;
-    left: 150px;
-    top: 353px;
+    left: 0%;
+    right: 0%;
+    top: 50.53%;
+    bottom: 30.93%;
+    
+    background: #423E3E;
+    border-radius: 5px;
 }
 
 .buy-text {
