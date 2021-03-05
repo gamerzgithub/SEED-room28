@@ -22,6 +22,14 @@ export const buySellSucess = (particulars) => {
     }
 }
 
+export const logout = (particulars) => {
+    return {
+        type: 'USER_LOGOUT',
+        payload: ''
+    }
+}
+
+
 
 //thunks
 
@@ -70,7 +78,7 @@ export const thunkBuySell = (
                 orderType: "SELL"
             })
         }
-
+        console.log(body)
         const res = await fetch("https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/transactions/add", {
             method: 'post',
             headers: {
@@ -81,6 +89,7 @@ export const thunkBuySell = (
         });
 
         const jsonRes = await res.json();
+        console.log(jsonRes)
         dispatch(buySellSucess(jsonRes));
         return true;
 
@@ -90,4 +99,15 @@ export const thunkBuySell = (
     }
 }
 
+
+export const thunkLogout = () => async (dispatch) => {
+    try{
+        dispatch(logout());
+        return true;
+
+    } catch(err) {
+        console.log(err);
+        return false;
+    }
+}
 

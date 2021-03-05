@@ -3,18 +3,18 @@ import { Navbar, Nav, Dropdown, Icon, Button } from 'rsuite';
 import logo from '../../assets/dbs.png';
 import './NavigationBar.css';
 import { useHistory } from "react-router-dom";
+import * as actions from '../../actions';
 
 
 export const NavigationBar = () => {
 
-    // const {userData} = useContext(UserContext);
 
     const history = useHistory();
 
-    // const test = () => {
-    //     console.log(userData);
-    //     history.push("/");
-    // }
+     const test = () => {
+         actions.logout();
+         history.push("/");
+     }
 
     return(
         <div>
@@ -39,7 +39,7 @@ export const NavigationBar = () => {
                     </Dropdown> */}
                 </Nav>
                 <Nav pullRight >
-                    <Button className="buttonNav">Log out</Button>
+                    <Button className="buttonNav" onClick={()=>test()}>Log out</Button>
                 </Nav>
                 </Navbar.Body>
             </Navbar>

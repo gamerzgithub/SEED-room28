@@ -22,7 +22,9 @@ export const userReducer = (
                 ...state,
                 ...action.payload
             }
-
+        case 'USER_LOGOUT':
+            state = undefined
+            return state
         default:
             return state;
     }

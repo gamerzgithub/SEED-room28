@@ -13,7 +13,8 @@ const mapDispatchtoProps = (dispatch) => {
         submitSell: async (token, val) => {
             const fields = {
                 token: token,
-                value: val
+                value: val,
+                action: "SELL"
             }
             return await dispatch(actions.thunkBuySell(fields));
         }
