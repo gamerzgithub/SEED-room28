@@ -41,11 +41,12 @@ export const CurrentPricing = () => {
 
     return(
         <div>
-            <div style={{display:"flex"}}>
+            <div className="container">
                 <img width="64" height="64" src={tokenIcon} alt="token"/>
-                <p>Asset symbol: {currentPricing.assetSymbol}</p>
+                <p>{currentPricing.assetSymbol}</p>
                 <p>Current price: {currentPricing.price}</p>
                 <p>As of: {currentPricing.timestamp}</p>
+                
             </div>
         </div>
     )
