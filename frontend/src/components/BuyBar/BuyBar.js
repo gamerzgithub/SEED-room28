@@ -1,9 +1,5 @@
-import React, {useCallback, useContext, useState} from 'react';
-import { Navbar, Nav, Dropdown, Icon, Button } from 'rsuite';
-// import UserContext from '../../UserContext';
-// import logo from '../../assets/dbs.png';
+import React, {useState} from 'react';
 import './BuyBar.css';
-import { useHistory } from "react-router-dom";
 import {store} from '../../index';
 import { connect } from "react-redux";
 import * as actions from '../../actions';
