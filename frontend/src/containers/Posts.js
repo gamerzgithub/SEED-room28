@@ -37,7 +37,7 @@ export const Posts = () => {
         setOrderHistory(jsonRes);
 
 
-    },[]);
+    });
 
 
     return(

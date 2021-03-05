@@ -37,7 +37,7 @@ export const CurrentPricing = () => {
         setCurrentPricing(jsonRes);
 
 
-    }, [])
+    })
 
 
     return(
