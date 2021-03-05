@@ -18,26 +18,23 @@ export const NavigationBar = () => {
     // }
 
     return(
-        <div style={{width: "100%", height: "20%"}}>
+        <div>
             <Navbar>
                 <Navbar.Header>
                 <div>
-                    <img className="dbslogo" alt="logo" src={logo} width="150px" height="50px"/>
+                    <img className="dbslogo" alt="logo" src={logo}/>
                 </div>
                 </Navbar.Header>
                 <Navbar.Body>
                 <Nav>
                     <Nav.Item icon={<Icon icon="home" />} >Home</Nav.Item>
-                    <Nav.Item>News</Nav.Item>
-                    <Nav.Item>Products</Nav.Item>
-                    <Dropdown title="About">
-                    <Dropdown.Item >Company</Dropdown.Item>
-                    <Dropdown.Item>Team</Dropdown.Item>
-                    <Dropdown.Item>Contact</Dropdown.Item>
-                    </Dropdown>
+                    <Nav.Item>Dashboard</Nav.Item>
+                    <Nav.Item>Buy/Sell</Nav.Item>
+                    <Nav.Item>Account</Nav.Item>
+                    <Nav.Item>History</Nav.Item>
                 </Nav>
                 <Nav pullRight >
-                    <Button style={{alignSelf:"center"}} appearance="default">Log out</Button>
+                    <Button className="buttonNav">Log out</Button>
                 </Nav>
                 </Navbar.Body>
             </Navbar>
