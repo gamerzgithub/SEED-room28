@@ -1,12 +1,13 @@
 import React from 'react';
+import {CurrentPricing} from '../components/CurrentPricing/CurrentPricing'
 import {NavigationBar} from "../components/NavBar/NavigationBar";
-import UserInfo from "../components/UserInfo/UserInfo";
 
-export const HomeScreen = () => {
+
+export const CurrentPricingScreen = () => {
     return(
         <div style={{width:"100vw", height:"100vh"}}>
             <NavigationBar />
-            <UserInfo />
+            <CurrentPricing />
         </div>
     )
 }
