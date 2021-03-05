@@ -1,13 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { FlexboxGrid, List } from 'rsuite';
-<<<<<<< HEAD
 import {Wallet} from '../Wallet/Wallet';
+import './UserInfo.css';
 
-
-=======
-import "./UserInfo.css"
->>>>>>> origin/master
 
 const mapStatetoProps = (state) => {
     return {
