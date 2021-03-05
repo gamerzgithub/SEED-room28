@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {store} from '../index';
+import moment from 'moment';
 
 import TransHistory from '../components/TransHistory/TransHistory';
 //import './Posts.css';
@@ -60,7 +61,7 @@ export const Posts = () => {
 
                 <Column width={200}>
                     <HeaderCell>Timestamp</HeaderCell>
-                    <Cell rowData={data => Date.parse(data)} dataKey="timestamp" />
+                    <Cell rowData={data => moment.unix(data).format("MM/DD/YYYY")} dataKey="timestamp" />
                 </Column>
 
                 <Column width={200}>
