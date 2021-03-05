@@ -12,7 +12,7 @@ export const NavigationBar = () => {
     const history = useHistory();
 
      const test = () => {
-         actions.logout();
+         actions.thunkLogout();
          history.push("/");
      }
 
