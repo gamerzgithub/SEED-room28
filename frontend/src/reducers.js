@@ -7,7 +7,9 @@ export const initialUserState = {
     nric: "",
     address: "",
     phoneNumber: "",
-    email: ""
+    email: "",
+    accountBalance: 0,
+    assetBalance: 0
 };
 
 export const userReducer = (

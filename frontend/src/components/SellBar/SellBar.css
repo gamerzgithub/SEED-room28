@@ -6,7 +6,7 @@
     top: 353px;
 }
 
-.buybar {
+.sellbar {
     position: absolute;
     left: 0%;
     right: 0%;
@@ -17,7 +17,7 @@
     border-radius: 5px;
 }
 
-.buy-text {
+.sell-text {
     position: absolute;
     left: 5.61%;
     right: 85.79%;
