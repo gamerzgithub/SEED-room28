@@ -41,8 +41,8 @@ export const CurrentPricing = () => {
 
 
     return(
-        <div style={{height:"100%", width:"100%", justifyContent:"center", alignItems:"center"}}>
-            <div style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems:"center", backgroundColor:"white", width:"50%"}}>
+        <div className="container">
+            <div className="container">
                 <img width="64" height="64" src={tokenIcon} alt="token"/>
                 <p>Asset symbol: {currentPricing.assetSymbol}</p>
                 <p>Current price: {currentPricing.price}</p>
