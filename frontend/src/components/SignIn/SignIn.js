@@ -1,63 +1,67 @@
 import React, {useState} from 'react';
 import { Form, FormGroup, FormControl, ControlLabel, ButtonToolbar, Button } from 'rsuite';
 import { useHistory } from "react-router-dom";
-import "./SignIn.css";
+import { connect } from "react-redux";
+import * as actions from '../../actions';
+import {store} from '../../index';
 
 
 
+const mapStatetoProps = (state) => {
+    return state;
+}
 
-export const SignIn = () => {
+const mapDispatchtoProps = (dispatch) => {
+    return {
+        submitSignIn: async (us, pw) => {
+            const fields = {
+                username: us,
+                password: pw
+            }
+            return await dispatch(actions.thunkSignIn(fields));
+        }
+    }
+
+}
+
+
+
+const SignIn = ({submitSignIn}) => { 
+
+    const token = store.getState().userReducer.accountKey;
+
+
+    const history = useHistory();
 
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
 
-    // const {userData, setUserData} = useContext(UserContext);
+    const signInAndNavigate = async () => {
+        const result = await submitSignIn(username, password);
 
-    const history = useHistory();
+        if(result) {
+            history.push('/home');
+        } else {
+            alert("error signing in");
+        }
 
-    // const submitSignIn = async () => {
-    //     try{
-    //         const res = await fetch("http://localhost:8080/signin", {
-    //             method: 'post',
-    //             headers: {'Content-Type': 'application/json'},
-    //             body: JSON.stringify({
-    //               username: username,
-    //               password: password
-    //             })
-    //         });
-    
-    //         const jsonRes = await res.json();
-    
-    //         await setUserData({
-    //             token: jsonRes.token,
-    //             user: jsonRes.user
-    //         });
-
-    //         console.log(userData.token);
-    //         console.log(userData.user);
-
-    //         history.push("/home")
-    //     } catch(err) {
-    //         console.log(err);
-    //     }
-        
-    // }
+    }
 
     return(
-        <div fluid className ="vertical-align">
-            <Form>
+        <div fluid style={{justifyContent:"center", alignSelf:"center", display:"flex"}}>
+            <Form style={{width:"50%"}}>
                 <FormGroup>
-                <ControlLabel className="controlLabel">Username</ControlLabel>
+                <ControlLabel style={{color: 'white'}}>Username</ControlLabel>
                 <FormControl onChange={value => setUsername(value)} name="username" />
                 </FormGroup>
                 <FormGroup>
-                <ControlLabel className="controlLabel">Password</ControlLabel>
+                <ControlLabel style={{color: 'white'}}>Password</ControlLabel>
                 <FormControl onChange={value => setPassword(value)} name="password" type="password" />
                 </FormGroup>
                 <FormGroup>
                 <ButtonToolbar>
-                    <Button className="button" onClick={() =>console.log('hi')} appearance="primary">Login</Button>
-                    <Button appearance="default">Cancel</Button>
+                    <Button onClick={signInAndNavigate} appearance="primary">Submit</Button>
+                    <Button onClick={() => console.log(token)} appearance="default">Cancel</Button>
                 </ButtonToolbar>
                 </FormGroup>
             </Form>
@@ -65,3 +69,5 @@ export const SignIn = () => {
         
     )
 }
+
+export default connect(mapStatetoProps, mapDispatchtoProps)(SignIn);
