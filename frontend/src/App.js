@@ -9,7 +9,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import {HomeScreen} from "./screens/HomeScreen";
 import {AuthScreen} from "./screens/AuthScreen";
 import {BuyScreen} from "./screens/BuyScreen";
+import {OrderHistoryScreen} from "./screens/OrderHistoryScreen";
+import {CurrentPricingScreen} from "./screens/CurrentPricingScreen";
 import {store} from './index';
+import {Posts} from './containers/Posts';
 
 const particlesParam = {
 	particles: {
@@ -38,6 +41,7 @@ function App() {
             </Route>
             <Route path="/buy" component={BuyScreen}/>
             <Route path="/signin" component={AuthScreen}/>
+<<<<<<< HEAD
             {/* {
               token
 
@@ -48,7 +52,11 @@ function App() {
               :
               <Redirect to="/home" />
             } */}
+=======
+>>>>>>> origin/wallet
             <Route path="/home" component={HomeScreen} />
+            <Route path="/orderhistory" component={OrderHistoryScreen} />
+            <Route path="/currentpricing" component={CurrentPricingScreen} />
           </Switch>
       </Router>
     </div>
