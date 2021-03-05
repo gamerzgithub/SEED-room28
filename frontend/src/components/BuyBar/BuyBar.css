@@ -40,6 +40,7 @@
     right: 54.47%;
     top: 48.31%;
     bottom: 24.72%;
+    width:30%; 
 
     background: #FFFFFF;
     border-radius: 10px;
@@ -51,7 +52,7 @@
     right: 45.18%;
     top: 54.49%;
     bottom: 30.9%;
-    
+
     font-family: Roboto;
     font-style: normal;
     font-weight: 500;
@@ -66,8 +67,9 @@
     position: absolute;
     left: 54.82%;
     right: 15%;
-    top: 48.31%;
+    top: 46.31%;
     bottom: 24.72%;
+    width:30%;
 
     background: #FFFFFF;
     border-radius: 10px;
@@ -87,7 +89,7 @@
     line-height: 33px;
     text-align: center;
 
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .submit-button {
@@ -101,8 +103,10 @@
     font-style: normal;
     font-weight: 500;
     font-size: 28px;
-    line-height: 33px;
+    line-height: 18px;
     text-align: center;
+    height: 25%;
+    width: 10%;
 
     background-color: #FFFFFF;
 }
